@@ -1,0 +1,32 @@
+<script language="Javascript">
+    //d
+    var pelanggan = "Siti Aminah";
+    var produk = "Tv";
+    //Tv => 3jt, kulkas =>4juta, Ac => 5juta.
+    //struktur kendali
+    if (produk == 'Tv'){
+        hargaSatuan = 3000000;
+    }
+    else if(produk == 'Kulkas'){
+        hargaSatuan = 4000000;
+    }
+    else if(produk == 'Ac'){
+        hargaSatuan = 5000000;
+    }
+    else{
+        hargaSatuan = 0;
+    }
+    let jumlahBeli = 5;
+    let bruto = hargaSatuan * jumlahBeli;
+
+    if(produk == 'AC') diskon = 0.1 * bruto;
+    else diskon = 0;
+    let diskon = (produk == 'AC') ? 0.1 * bruto : 0;
+    //cetak
+    document.write("data pembelian" +
+    "<br/>pelanggan : " + pelanggan +
+    "<br/>harga satuan : " + hargaSatuan +
+    "<br/>harga kotor : " + bruto +
+    "<br/>Diskon: " + diskon
+    );
+</script>

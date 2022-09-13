@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script language="javascript">
+        var nama = "Ridzwan";
+        var jabatan ="Manager";
+        var status ="Menikah";
+        // gapok (if): Manager=>15 jt, Asisten Manager=>10 jt, Staff=>5 jt 
+        if(jabatan =='Manager'){
+            gapok = 15000000;
+        }
+        else if(jabatan =='AssistenManager'){
+            gapok = 10000000;
+        }
+        if(jabatan =='Staff'){
+            gapok = 5000000;
+        }
+    
+        var TunjaJabatan = 0.15;
+        var BPJS = 0.1;
+        var TunjaKeluarga = 0.2;
+        let TunjanganJabatan = gapok * TunjaJabatan;
+        let TunjanganBPJS = gapok * BPJS;
+        
+    
+        //ternary
+        /*
+        if (status == 'Menikah') TunjanganKeluarga = 0.2 * gapok;
+        else TunjanganKeluarga = 0;
+        */
+        let TunjanganKeluarga = (status == 'Menikah') ? 0.2 * gapok : 0;
+
+        // total gaji
+        let TotalGaji =TunjanganBPJS + TunjanganJabatan + TunjanganKeluarga + gapok;
+
+        //cetak
+        
+        document.write("DATA GAJI PEGAWAI" +
+        "<br/>Nama: " + nama +
+        "<br/>Jabatan: " + jabatan +
+        "<br/>Status: " + status +
+        "<br/><br/>Gaji Pokok " + gapok +
+        "<br/>Tunjangan Jabatan : " + TunjanganJabatan +
+        "<br/>Tunjangan BPJS : " + TunjanganBPJS +
+        "<br/>Tunjangan Keluarga : " + TunjanganKeluarga +
+        "<br/>Total Gaji : " + TotalGaji );
+    </script>/tr>
+    
+</body>
+</html>
