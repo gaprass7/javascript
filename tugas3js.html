@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 align="center">Daftar Nilai Mahasiswa</h2>
+    <table align="center" border="1" cellpadding="10">
+        <thead>
+            <tr bgcolor="#FF6782">
+                <th>NO</th>
+                <th>NAMA</th>
+                <th>NILAI</th>
+                <th>KETERANGAN</th>
+                <th>GRADE</th>
+                <th>PREDIKAT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script language="javascript">
+                let m1 = { Nama: "Budi", Nilai:75};
+                let m2 = { Nama: "Bedu", Nilai:55};
+                let m3 = { Nama: "Dedi", Nilai:95};
+                let m4 = { Nama: "Dudi", Nilai:88};
+                let m5 = { Nama: "Deden", Nilai:25};
+                let m6 = { Nama: "Desi", Nilai:65};
+
+                let mahasiswa = [ m1, m2, m3, m4, m5, m6];
+
+                let no = 1;
+                for(m of mahasiswa){
+                    let ket =(m.Nilai >= 60) ? "Lulus" : "Gagal";
+                    document.write(`
+                    <tr>
+                        <td>${no++}</td>
+                        <td>${m.Nama}</td>
+                        <td>${m.Nilai}</td>
+                        <td>${ket}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    `)
+                }
+            </script>
+        </tbody>
+    </table>
+
+</body>
+</html>
