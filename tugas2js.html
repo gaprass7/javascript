@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 Javascript</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h3 align="center">Data Pegawai</h3>
+            <table align="center" class="table table-bordered table-striped">
+                <thead bgcolor="red">
+                    <tr>
+                        <td>NO</td>
+                        <td>NAMA</td>
+                        <td>JABATAN</td>
+                        <td>AGAMA</td>
+                        <td>GAJI POKOK</td>
+                        <td>TUNJANGAN JABATAN</td>
+                        <td>TUNJANGAN KESEHATAN</td>
+                        <td>GAJI KOTOR</td>
+                        <td>ZAKAT PROFESI</td>
+                        <td>TAKE HOME PAY</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <script>
+                        //format rupiah
+                        const formatRp = (e) => {
+                            return new Intl.NumberFormat("id-ID").format(e);
+                        };
+
+                        //mendeklarasikan variable jabatan dan gapok
+                        let jabatan = "Manager";
+                        let gapok = 0;
+
+                        //melakukan looping pegawai 1- 100
+                        for (let numbers =1; numbers <=100; numbers++ ) {
+                            //menggabungkan if multi kondisi untuk menentukan jabatan
+                            if (numbers >75 && numbers<=100) jabatan ="Staff";
+                            else if (numbers >50 && numbers<=75) jabatan ="Super Visor";
+                            else if (numbers >25 && numbers<=50) jabatan ="Assisten Manager";
+                            else jabatan ="Manager";
+
+                            //switch case untuk menentukan gapok
+                            switch (jabatan ){
+                                case "Staff" : gapok =4000000; break;
+                                case "Super Visor" : gapok = 7000000; break;
+                                case "Super Visor" : gapok = 7000000; break;
+                                case "Assistend Manager" : gapok = 10000000; break;
+                                case "Manager" : gapok = 15000000; break;
+                                default: gapok = 15000000; break;
+                            }
+
+                            //logic perhitungan
+                            let tunjab = gapok * 0.3;
+                            let tunkes = gapok * 0.1;
+                            let gator = gapok + tunjab + tunkes;
+
+                            let agama = "Muslim";
+                            numbers % 2 == 1 ? agama : agama ="Non Muslim";
+                            const warna = agama == "Muslim" ? "#fde047" : "#67e8f9";
+
+                            let zaprof = 0;
+                            if (agama == "Muslim" && gator >= 7000000 ) zaprof = gator * 0.025;
+                            else zaprof = 0;
+
+                            //gaji kotor - zakat profesi ( take home pay)
+                            const takeHomePay = gator - zaprof;
+
+                            //output dari Javascript
+                            document.write(`
+                                <tr bgcolor=${warna}>
+                                    <td class="text-center">${numbers}</td>
+                                    <td>Pegawai${numbers}</td>
+                                    <td>${jabatan}</td>
+                                    <td>${agama}</td>
+                                    <td class="text-end">Rp. ${gapok}</td>
+                                    <td class="text-end">Rp. ${tunjab}</td>
+                                    <td class="text-end">Rp. ${tunkes}</td>
+                                    <td class="text-end">Rp. ${gator}</td>
+                                    <td class="text-end">Rp. ${zaprof}</td>
+                                    <td class="text-end">Rp. ${takeHomePay}</td>
+                                </tr>
+                            `)
+                           
+                        }
+                    </script>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
