@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Info Kategori Gempa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <h2 align="center">Info Kategori Gempa</h2>
+    <table align="center" border="2" cellpadding="10">
+        <thead align="center">
+            <tr bgcolor="#FF6782">
+                <th>NO</th>
+                <th>LOKASI</th>
+                <th>SKALA</th>
+                <th>DAMPAK</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                let no=1;
+                class Info{
+                    constructor(lokasi, skala){
+                        this.lokasi = lokasi;
+                        this.skala = skala;
+                        
+                    }
+                    
+                    getSkala(){
+                        if(this.skala <= 2) this.dampak ='TidakTerasa';
+                        else if(this.skala >2 && this.skala <= 4) this.dampak ='BangunanRetakRetak';
+                        else if(this.skala >4 && this.skala <= 6) this.dampak ='BangunanRoboh';
+                        else if(this.skala >=6) this.dampak ='BangunanRoboh,BerskalaTsunami';
+                        else this.dampak ='';
+
+                        return this.dampak;
+                    }
+
+                
+                    mencetak(){
+                        document.write(`<tr>
+                            <td>${no++}</td>
+                            <td>${this.lokasi}</td>
+                            <td>${this.skala}</td>
+                            <td>${this.getSkala()}</td>
+                        </tr>`);
+                    }
+
+                }
+
+                g1 = new Info('Aceh', '6.2');
+                g2 = new Info('Yogyakarta', '5');
+                g3 = new Info('Bengkulu', '2');
+                g4 = new Info('Jakarta', '3');
+                g5 = new Info('Palembang', '1.6');
+                g6 = new Info('Surabaya', '4.4');
+                g7 = new Info('Papua', '2.8');
+                g8 = new Info('Kalimantan', '6.3');
+                g9 = new Info('Solo', '0.6');
+                g10 = new Info('Maluku', '4.2');
+
+                g1.mencetak(); g2.mencetak(); g3.mencetak(); g4.mencetak(); g5.mencetak(); g6.mencetak(); g7.mencetak(); g8.mencetak(); g9.mencetak(); g10.mencetak();
+            </script>
+
+        </tbody>
+
+
+</body>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  
+</html>
